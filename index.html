@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+
     <!-- Galaxy Background -->
     <div class="galaxy-background">
         <canvas id="falling-potatoes"></canvas>
@@ -34,14 +37,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Toggle monitor on/off functionality
-        const toggleButton = document.getElementById('toggle-button');
-        const crt = document.querySelector('.crt');
-        
-        toggleButton.addEventListener('click', () => {
-            crt.style.display = crt.style.display === 'none' ? 'block' : 'none';
-        });
-    </script>
 </body>
 </html>
