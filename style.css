@@ -1,0 +1,74 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: #00ff99; /* Glowing green for terminal text */
+    font-family: monospace;
+    overflow: hidden;
+}
+
+.terminal {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    height: 90vh;
+    max-height: 600px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.terminal-header {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ffcc00; /* Yellowish header */
+}
+
+.output {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff99;
+    border-radius: 5px;
+}
+
+#command-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #00ff99;
+    border-radius: 5px;
+    background-color: black;
+    color: #00ff99;
+}
+
+.galaxy-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(34, 34, 51, 1) 0%, rgba(0, 0, 0, 1) 70%);
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
