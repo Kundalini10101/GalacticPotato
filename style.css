@@ -16,104 +16,50 @@ body, html {
     overflow: hidden;
 }
 
-/* CRT Monitor Styles */
+/* Monitor and On/Off Button */
 .monitor {
-    position: relative;
-    margin: 3vmin auto;
-    padding: 5.5vmin;
-    width: min-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #3f3933;
-    border-radius: 0.5rem;
-    z-index: 2;
+  margin: 3vmin auto;
+  padding: 5.5vmin;
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #3f3933;
+  border-radius: 0.5rem;
+}
+
+.monitor.powered-off .crt {
+  background: #000;
+  opacity: 0.2;
+  transition: opacity 0.3s;
 }
 
 .screen {
-    position: relative;
-    border: 30px solid transparent;
-    border-radius: 0.5rem;
-    padding: 0;
-    overflow: hidden;
-    background: #1b1b1b;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  position: relative;
+  border: 30px solid transparent;
+  border-image-source: url(https://i.ibb.co/8jt98LP/crt-frame.png);
+  border-image-slice: 30 fill;
+  overflow: hidden;
 }
 
 .crt {
-    padding: 10px;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100px; /* Adjust height as needed */
+  background: #05321e;
+  background-image: radial-gradient(ellipse, #05321e 0%, #050505 90%);
+  animation: txt-shadow 1.6s infinite;
+  width: 80ch;
+  height: calc(80ch * 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .terminal h1 {
-    font-family: 'VT323', monospace;
-    color: #33ff33;
-    font-size: 2em;
-    text-align: center;
-}
-
-.vline {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    animation: blink 0.5s step-end infinite;
-    z-index: 2;
-}
-
-.scan-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-    animation: scan 1s linear infinite;
-    z-index: 2;
-}
-
-/* Galaxy Background */
-.galaxy-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background: radial-gradient(circle, rgba(34, 34, 51, 1) 0%, rgba(0, 0, 0, 1) 70%);
-}
-
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-/* Terminal Layout */
-.terminal {
-    position: relative;
-    width: 90vw;
-    max-width: 800px;
-    height: 90vh;
-    max-height: 600px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 3; /* Ensure terminal content is above background */
+  color: #00fd55;
+  font-size: 3.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 11s steps(17, end) infinite, blink-cursor .8s step-end infinite;
 }
 
 .terminal-header {
