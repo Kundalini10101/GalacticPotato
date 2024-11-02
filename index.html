@@ -23,7 +23,7 @@
             </div>
             <div class="scan-line"></div>
         </div>
-        <button>On/Off</button>
+        <button id="toggle-button">On/Off</button>
     </div>
     
     <!-- Main Terminal Interface -->
@@ -34,5 +34,14 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Toggle monitor on/off functionality
+        const toggleButton = document.getElementById('toggle-button');
+        const crt = document.querySelector('.crt');
+        
+        toggleButton.addEventListener('click', () => {
+            crt.style.display = crt.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
 </body>
 </html>
