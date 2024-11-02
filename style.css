@@ -1,13 +1,15 @@
 /* CRT Monitor Styles */
 .monitor {
-    margin: 3vmin auto 0 auto;
-    padding: 5.5vmin 5.5vmin 3.5vmin 5.5vmin;
+    position: relative;
+    margin: 3vmin auto;
+    padding: 5.5vmin;
     width: min-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #3f3933;
     border-radius: 0.5rem;
+    z-index: 2;
 }
 
 .screen {
@@ -23,6 +25,7 @@
 .crt {
     padding: 10px;
     background: black;
+    text-align: center;
 }
 
 .terminal h1 {
@@ -39,6 +42,7 @@
     height: 100%;
     background: rgba(255, 255, 255, 0.1);
     animation: blink 0.5s step-end infinite;
+    z-index: 2;
 }
 
 .scan-line {
@@ -51,35 +55,30 @@
     background-size: 100% 4px;
     pointer-events: none;
     animation: scan 1s linear infinite;
+    z-index: 2;
 }
 
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
-
-@keyframes scan {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(100%);
-    }
-}
-
-/* Existing Styles */
-body, html {
+/* Galaxy Background */
+.galaxy-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    color: #00ff99;
-    font-family: monospace;
-    overflow: hidden;
+    z-index: 1;
+    background: radial-gradient(circle, rgba(34, 34, 51, 1) 0%, rgba(0, 0, 0, 1) 70%);
 }
 
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Terminal Layout */
 .terminal {
     position: relative;
     width: 90vw;
@@ -92,4 +91,30 @@ body, html {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 3; /* Ensure terminal content is above background */
+}
+
+.terminal-header {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ffcc00;
+}
+
+.output {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff99;
+    border-radius: 5px;
+}
+
+#command-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #00ff99;
+    border-radius: 5px;
+    background-color: black;
+    color: #00ff99;
 }
