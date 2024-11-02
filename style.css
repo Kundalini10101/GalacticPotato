@@ -1,3 +1,21 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: #00ff99;
+    font-family: monospace;
+    overflow: hidden;
+}
+
 /* CRT Monitor Styles */
 .monitor {
     position: relative;
@@ -25,13 +43,17 @@
 .crt {
     padding: 10px;
     background: black;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Adjust height as needed */
 }
 
 .terminal h1 {
     font-family: 'VT323', monospace;
     color: #33ff33;
     font-size: 2em;
+    text-align: center;
 }
 
 .vline {
@@ -60,12 +82,12 @@
 
 /* Galaxy Background */
 .galaxy-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     background: radial-gradient(circle, rgba(34, 34, 51, 1) 0%, rgba(0, 0, 0, 1) 70%);
 }
 
@@ -75,7 +97,7 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
 }
 
 /* Terminal Layout */
@@ -117,4 +139,20 @@ canvas {
     border-radius: 5px;
     background-color: black;
     color: #00ff99;
+}
+
+/* Animations */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
 }
