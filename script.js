@@ -27,7 +27,7 @@ function drawPotato(potato) {
 }
 
 let potatoImage = new Image();
-potatoImage.src = 'Users/richardperalta/Downloads/potatoe.png'; // Add path to realistic potato image
+potatoImage.src = 'images/potatoe.png'; // Add path to realistic potato image
 
 function animatePotatoes() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
